@@ -1,13 +1,12 @@
-import { getCssParam, discoverParentBackgroundColor } from './utils';
+import { getCssParam, setCssParam, discoverParentBackgroundColor, buildColorFromString } from './utils';
+
 /**
  * 背景色の変更
  * @param {Element} element
  */
 function applyBackground(element) {
   const bgc = discoverParentBackgroundColor(element.parentElement);
-  if (bgc) {
-    element.style.backgroundColor = bgc;
-  }
+  element.style.backgroundColor = bgc;
 }
 
 /**
@@ -15,7 +14,15 @@ function applyBackground(element) {
  * @param {Element} element
  */
 function applyBoxShadow(element) {
-
+  let bgc = getCssParam(element, 'background-color');
+  const color = buildColorFromString(bgc);
+  const size = 6;
+  const blur = 8;
+  const shadowValue1 = `${size}px ${size}px ${blur}px hsl(${color.H}, ${color.S}%, ${Math.max(0, color.L - 10)}%)`
+  const shadowValue2 = `-${size}px -${size}px ${blur}px hsl(${color.H}, ${color.S}%, ${Math.min(100, color.L + 15)}%)`
+  
+  const boxShadowValue = [shadowValue1, shadowValue2].join(', ')
+  element.style.boxShadow = boxShadowValue;
 }
 
 /**
@@ -42,7 +49,8 @@ function applyFontSize(element) {
  */
 export function applyNeumorphism(element) {
   element.classList.add('neumorphism');
-  console.log(getCssParam(element, 'font-size'));
-  // element.style.fontSize = `calc(${getCssParam(element, 'font-size')} * 0.8)`;
   applyBackground(element);
+  applyBoxShadow(element); // 背景がすでに反映されていること
+  // // applySpaceing(element);
+  // // applyFontSize(element);
 }
