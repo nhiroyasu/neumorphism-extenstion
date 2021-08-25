@@ -21,7 +21,7 @@ function applyBoxShadow(element, bgc) {
   // const bgc = getCssParam(element, 'background-color');
   const color = buildColorFromString(bgc);
   const size = 6;
-  const blur = 8;
+  const blur = 12;
   const shadowValue1 = `${size}px ${size}px ${blur}px hsl(${color.H}, ${color.S}%, ${Math.max(0, color.L - 6)}%)`
   const shadowValue2 = `-${size}px -${size}px ${blur}px hsl(${color.H}, ${color.S}%, ${Math.min(100, color.L + 6)}%)`
   

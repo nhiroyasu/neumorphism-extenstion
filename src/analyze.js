@@ -16,11 +16,9 @@ function discoverNeumorphismElement(parentElement) {
   const children = parentElement.children;
   for (let i = 0; i < children.length; i++) {
     const element = children[i];
-    if (element.hasChildNodes === false) {
-      return;
-    } else if (isNeumorphismRule(element)) {
+    if (isNeumorphismRule(element)) {
       cursorIsPointerElementList.push(element);
-    } else {
+    } else if (element.hasChildNodes) {
       discoverNeumorphismElement(element);
     }
   }
