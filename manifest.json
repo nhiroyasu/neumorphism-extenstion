@@ -11,8 +11,14 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["./build/bundle.js"],
-      "css": ["./styles/content.css"]
+      "js": ["./build/content.js"],
+      "css": ["./src/styles/content.css"]
     }
-  ]
+  ],
+  "browser_action": {
+    "default_icon": "./assets/icon.png",
+    "default_title": "Convex",
+    "default_popup": "./src/popup/popup.html",
+    "browser_style": true
+  }
 }
