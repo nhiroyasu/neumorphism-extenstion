@@ -5,7 +5,7 @@
   "description": "Sample Chrome Extension",
   "applications": {
     "gecko": {
-      "id": "sample@example.com"
+      "id": "cyan1109nh@gmail.com"
     }
   },
   "content_scripts": [
