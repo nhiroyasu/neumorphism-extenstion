@@ -1,4 +1,4 @@
-import { discoverNeumorphismElements } from './analyze'
+import { discoverNeumorphismElements } from './analyze';
 import { applyNeumorphism } from './style';
 
 function main() {
@@ -8,4 +8,11 @@ function main() {
   });
 }
 
-main();
+setTimeout(() => {
+  main();
+}, 5000);
+
+window.onload = function() {
+  console.log("onload");
+  main()
+};
