@@ -28,3 +28,10 @@ export function discoverNeumorphismElements() {
   discoverNeumorphismElement(document.body);
   return cursorIsPointerElementList;
 }
+
+export function resetNeumorphismElements() {
+  cursorIsPointerElementList.forEach(element => {
+    element.style = "";
+  });
+  cursorIsPointerElementList.length = 0;
+}

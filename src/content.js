@@ -1,4 +1,4 @@
-import { discoverNeumorphismElements } from './analyze';
+import { discoverNeumorphismElements, resetNeumorphismElements } from './analyze';
 import { applyNeumorphism } from './style';
 
 function main() {
@@ -8,11 +8,12 @@ function main() {
   });
 }
 
-setTimeout(() => {
-  main();
-}, 5000);
+function onMessage(message) {
+  if (message['switch'] === 'on') {
+    main();
+  } else {
+    resetNeumorphismElements();
+  }
+}
 
-window.onload = function() {
-  console.log("onload");
-  main()
-};
+browser.runtime.onMessage.addListener(onMessage);
