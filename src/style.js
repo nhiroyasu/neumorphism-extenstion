@@ -38,6 +38,8 @@ function applySpaceing(element) {
   // font-size
   // 元のpadding
   // 元のmargin
+  element.style.margin = "12px";
+  element.style.padding = "8px";
 }
 
 /**
@@ -46,6 +48,16 @@ function applySpaceing(element) {
  */
 function applyFontSize(element) {
 
+}
+
+/**
+ * border-radiusの適応
+ * @param {Element} element 
+ */
+function applyBorderRadius(element) {
+  const value = "8px";
+  element.style.borderRadius = value;
+  return value;
 }
 
 /**
@@ -63,10 +75,10 @@ function applyDisplay(element) {
  * @param {Element} element
  */
 export function applyNeumorphism(element) {
-  element.classList.add('neumorphism');
   const background = applyBackground(element);
   const boxShadow = applyBoxShadow(element, background); // 背景がすでに反映されていること
   applyDisplay(element);
-  // // applySpaceing(element);
+  applySpaceing(element);
   // // applyFontSize(element);
+  applyBorderRadius(element);
 }
