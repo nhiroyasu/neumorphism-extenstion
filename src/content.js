@@ -1,5 +1,5 @@
-import { discoverNeumorphismElements, resetNeumorphismElements } from './analyze';
-import { applyNeumorphism } from './style';
+import { discoverNeumorphismElements, resetNeumorphismElements } from './util/analyze';
+import { applyNeumorphism } from './util/style';
 
 function main() {
     const targetElements = discoverNeumorphismElements();
