@@ -1,4 +1,4 @@
-import Color from './domain/color';
+import Color from '../domain/color';
 
 export function getCssParam(element, param) {
     const style = window.getComputedStyle(element);

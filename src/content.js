@@ -17,3 +17,10 @@ function onMessage(message) {
 }
 
 browser.runtime.onMessage.addListener(onMessage);
+
+browser.runtime
+    .sendMessage({
+        exec: 'init',
+    })
+    .then(res => {})
+    .catch(err => {});
