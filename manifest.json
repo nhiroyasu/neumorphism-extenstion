@@ -1,8 +1,8 @@
 {
-  "name": "Sample",
+  "name": "Convex",
   "version": "1.0.0",
   "manifest_version": 2,
-  "description": "Sample Chrome Extension",
+  "description": "Convex",
   "applications": {
     "gecko": {
       "id": "cyan1109nh@gmail.com"
