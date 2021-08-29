@@ -51,7 +51,6 @@ function setSwitchState(value) {
  * @param {String} area 変化したストレージタイプ
  */
 function observeState(changes, area) {
-    console.log(changes);
     if (Object.keys(changes).includes(SWITCH_STATE)) {
         refreshView(changes[SWITCH_STATE].newValue);
     }
@@ -85,6 +84,5 @@ function sendOffMessage() {
 }
 
 fetchSwitchState().then(value => {
-    console.log(value);
     refreshView(value);
 });

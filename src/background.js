@@ -27,7 +27,6 @@ function sendOffMessage() {
 }
 
 function onMessage(message) {
-    console.log(message);
     switch (message['exec']) {
         case 'init':
             fetchSwitchState().then(value => {
