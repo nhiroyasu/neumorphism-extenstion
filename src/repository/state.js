@@ -9,14 +9,11 @@ export function getState(key) {
 
 /**
  * ストレージに保存
- * @param {String} key キー
- * @param {Any} value バリュー
+ * @param {Object} value 保存データ
  * @returns {Promise<Any>}
  */
-export function setState(key, value) {
-    return Storage.local.set({
-        key: value
-    });
+export function setState(value) {
+    return Storage.local.set(value);
 }
 
 class Storage {

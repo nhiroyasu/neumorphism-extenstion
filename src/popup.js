@@ -1,3 +1,4 @@
+import { getState, setState } from './repository/state';
 const switchOnClassName = 'switch-on';
 const switchOffClassName = 'switch-off';
 const switchButton = document.getElementById('neumorphism-button');
@@ -50,8 +51,16 @@ function sendOffMessage() {
     });
 }
 
-browser.runtime.onMessage(message => {
-    if (message['exec'] === 'reload') {
-        browser.tabs.reload();
+function onMessage(message) {
+    switch (message['exec']) {
+        case 'reload':
+            browser.tabs.reload();
+            break;
+        case 'init':
+            break;
+        default:
+            break;
     }
-});
+}
+
+browser.runtime.onMessage.addEventListener(onMessage);
