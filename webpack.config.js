@@ -5,6 +5,7 @@ module.exports = {
   // 下記はオブジェクトとして指定した例
   entry: {
     content: './src/content.js',
+    popup: './src/popup.js'
   },
   output: {
     // モジュールバンドルを行った結果を出力する場所やファイル名の指定

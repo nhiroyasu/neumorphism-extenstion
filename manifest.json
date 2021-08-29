@@ -18,7 +18,7 @@
   "browser_action": {
     "default_icon": "./assets/icon.png",
     "default_title": "Convex",
-    "default_popup": "./src/popup/popup.html",
+    "default_popup": "./build/popup.html",
     "browser_style": true
   }
 }
