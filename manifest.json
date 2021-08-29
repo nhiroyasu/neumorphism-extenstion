@@ -1,24 +1,28 @@
 {
-  "name": "Convex",
-  "version": "1.0.0",
-  "manifest_version": 2,
-  "description": "Convex",
-  "applications": {
-    "gecko": {
-      "id": "cyan1109nh@gmail.com"
-    }
-  },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["./build/content.js"],
-      "css": ["./src/styles/content.css"]
-    }
-  ],
-  "browser_action": {
-    "default_icon": "./assets/icon.png",
-    "default_title": "Convex",
-    "default_popup": "./build/popup.html",
-    "browser_style": true
-  }
+    "name": "Convex",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "description": "Convex",
+    "applications": {
+        "gecko": {
+            "id": "cyan1109nh@gmail.com"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["./build/content.js"],
+            "css": ["./src/styles/content.css"]
+        }
+    ],
+    "background": {
+      "page": "background.js"
+    },
+    "browser_action": {
+        "default_icon": "./assets/icon.png",
+        "default_title": "Convex",
+        "default_popup": "./src/popup/popup.html",
+        "browser_style": true
+    },
+    "permissions": ["storage"]
 }
