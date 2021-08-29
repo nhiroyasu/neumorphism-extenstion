@@ -1,3 +1,5 @@
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 import { fetchSwitchState } from './repository/state';
 
 function sendOnMessage() {
@@ -29,6 +31,15 @@ function sendOffMessage() {
 function onMessage(message) {
     switch (message['exec']) {
         case 'init':
+            fetchSwitchState().then(value => {
+                if (value) {
+                    sendOnMessage();
+                } else {
+                    sendOffMessage();
+                }
+            });
+            break;
+        case 'update':
             fetchSwitchState().then(value => {
                 if (value) {
                     sendOnMessage();

@@ -25,6 +25,7 @@ function discoverNeumorphismElement(parentElement) {
 }
 
 export function discoverNeumorphismElements() {
+    cursorIsPointerElementList.length = 0;
     discoverNeumorphismElement(document.body);
     return cursorIsPointerElementList;
 }

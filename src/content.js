@@ -1,3 +1,5 @@
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 import { discoverNeumorphismElements, resetNeumorphismElements } from './util/analyze';
 import { applyNeumorphism } from './util/style';
 
@@ -25,3 +27,20 @@ browser.runtime
     })
     .then(res => {})
     .catch(err => {});
+
+let href = location.href;
+
+const observer = new MutationObserver(function(mutations) {
+    if (href !== location.href) {
+        href = location.href;
+
+        browser.runtime
+            .sendMessage({
+                exec: 'update',
+            })
+            .then(res => {})
+            .catch(err => {});
+    }
+});
+
+observer.observe(document, { childList: true, subtree: true });
