@@ -8,6 +8,7 @@ function main() {
     });
 }
 
+// メッセージリステナー
 function onMessage(message) {
     if (message['switch'] === 'on') {
         main();
@@ -15,9 +16,9 @@ function onMessage(message) {
         resetNeumorphismElements();
     }
 }
-
 browser.runtime.onMessage.addListener(onMessage);
 
+// 初期実行を通知
 browser.runtime
     .sendMessage({
         exec: 'init',
